@@ -5,5 +5,13 @@
     "labelExampleFormatted": "example <underline>formatted</underline> text",
     "generalError": "An error has occurred",
     "styledButton": "Example of @emotion/styled button "
+  },
+  "home": {
+    "title": "Curated tools to gear you up!",
+    "subtitle": "Join the Nimbleway worktools initiative to be well prepared for your daily tasks.",
+    "buttons": {
+      "join": "Join",
+      "signUp": "Sign Up"
+    }
   }
 }

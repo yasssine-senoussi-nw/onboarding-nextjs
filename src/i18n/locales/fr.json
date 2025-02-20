@@ -5,5 +5,13 @@
     "labelExampleFormatted": "exemple de texte <underline>formaté</underline>",
     "generalError": "Une erreur s'est produite",
     "styledButton": "Exemple de bouton @emotion/styled"
+  },
+  "home": {
+    "title": "Outils triés pour vous équiper !",
+    "subtitle": "Rejoignez l’initiative Worktools de Nimbleway pour être bien préparé à vos tâches quotidiennes.",
+    "buttons": {
+      "join": "Rejoindre",
+      "signUp": "S'inscrire"
+    }
   }
 }
