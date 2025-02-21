@@ -10,7 +10,7 @@ describe("Landing page home component", () => {
     expect(landing[0]?.tagName).toBe("DIV");
   });
 
-  it("there should be a background image with the url '/assets/svg/background.svg'", () => {
+  it("should be have a background image with the url '/assets/svg/background.svg'", () => {
     const { container } = render(<HomePage />);
     const landing = container.getElementsByClassName("landing");
     expect(landing[0]).toHaveStyle("background-image: url(/assets/svg/background.svg)");
