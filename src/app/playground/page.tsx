@@ -5,10 +5,10 @@ import { Button } from "~components/elements/styled";
 import { ArrowRightIcon } from "~components/icons/arrow";
 import Banner3S from "~components/landing/banner3s";
 import { LandingEmotionButton } from "~components/landing/LandingEmotionButton";
+import txKeys from "~i18n/translations";
 import { useTranslation } from "~i18n/useTranslation";
 import { useAppDispatch, useAppSelector } from "~store";
 import { decrement, increment, incrementByAmount, selectCount } from "~store/counter/slice";
-import txKeys from "~i18n/translations";
 
 const PlaygroundPage: React.FC = () => {
   const translate = useTranslation();
