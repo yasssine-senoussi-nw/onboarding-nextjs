@@ -19,7 +19,7 @@ const PlaygroundPage: React.FC = () => {
     <>
       <LandingEmotionButton />
       <Banner3S title="Playground" doc="https://react-redux.js.org/"></Banner3S>
-      <Button>{translate("common.styledButton")}</Button>
+      <Button>{translate(txKeys.common.styledButton)}</Button>
       <ArrowRightIcon />
 
       <h2>
