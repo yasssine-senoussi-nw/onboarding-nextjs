@@ -1,6 +1,6 @@
-import { styled } from "@mui/material";
+import { ButtonBase, styled } from "@mui/material";
 
-export const BaseStyledButton = styled("button")`
+export const BaseStyledButton = styled(ButtonBase)`
   width: 8.625rem;
   height: 3.5rem;
   padding: 0.625rem 0.813rem;
