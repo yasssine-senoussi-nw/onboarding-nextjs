@@ -1,3 +1,5 @@
+import { NeueFonts } from "~app/muiThemeProvider/mui-theme-fonts";
+
 import type { Theme } from "@mui/material/styles";
 import { createTheme } from "@mui/material/styles";
 
@@ -47,11 +49,17 @@ const muiTheme: Theme = createTheme({
     },
   },
   typography: {
-    fontFamily: `"Neue Haas Grotesk Display Pro", "Arial", sans-serif`,
+    fontFamily: ["Neue Haas Grotesk Display Pro", "Arial", "sans-serif"].join(","),
     fontWeightLight: 300,
     fontWeightRegular: 400,
     fontWeightMedium: 500,
     fontWeightBold: 700,
+  },
+
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: NeueFonts,
+    },
   },
 });
 export default muiTheme;
