@@ -1,7 +1,7 @@
 import { BaseStyledButton } from "~components/baseButton/BaseButton.style";
 
 interface BaseButtonProps {
-  text: string;
+  text?: string;
   onClick?: () => void;
   icon?: JSX.Element;
 }
