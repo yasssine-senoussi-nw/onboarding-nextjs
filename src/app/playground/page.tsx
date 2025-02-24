@@ -6,6 +6,7 @@ import { Button } from "~components/elements/styled";
 import { ArrowRightIcon } from "~components/icons/arrow";
 import Banner3S from "~components/landing/banner3s";
 import { LandingEmotionButton } from "~components/landing/LandingEmotionButton";
+import { PrimaryButton } from "~components/primaryButton";
 import txKeys from "~i18n/translations";
 import { useTranslation } from "~i18n/useTranslation";
 import { useAppDispatch, useAppSelector } from "~store";
@@ -47,6 +48,15 @@ const PlaygroundPage: React.FC = () => {
             emptyFunction();
           }}
           icon={<ArrowRightIcon />}
+        />
+      </div>
+      <div>
+        {/* PrimaryButton */}
+        <PrimaryButton
+          text="Sign in"
+          onClick={() => {
+            emptyFunction();
+          }}
         />
       </div>
       <LandingEmotionButton />
