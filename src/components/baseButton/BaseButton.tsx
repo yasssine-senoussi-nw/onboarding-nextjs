@@ -1,12 +1,12 @@
 import { BaseStyledButton } from "~components/baseButton/BaseButton.style";
 
 interface BaseButtonProps {
-  text?: string;
-  onClick?: () => void;
+  text: string;
+  onClick: () => void;
   icon?: JSX.Element;
 }
 
-function BaseButton({ text, onClick, icon }: BaseButtonProps): JSX.Element {
+export function BaseButton({ text, onClick, icon }: BaseButtonProps): JSX.Element {
   return (
     <BaseStyledButton onClick={onClick}>
       {icon}
@@ -14,5 +14,3 @@ function BaseButton({ text, onClick, icon }: BaseButtonProps): JSX.Element {
     </BaseStyledButton>
   );
 }
-
-export default BaseButton;

@@ -1,7 +1,7 @@
 "use client";
 import * as React from "react";
 
-import BaseButton from "~components/baseButton";
+import { BaseButton } from "~components/baseButton";
 import { Button } from "~components/elements/styled";
 import { ArrowRightIcon } from "~components/icons/arrow";
 import Banner3S from "~components/landing/banner3s";
@@ -17,9 +17,38 @@ const PlaygroundPage: React.FC = () => {
   const dispatch = useAppDispatch();
   const count = useAppSelector(selectCount);
   const [incrementAmount, setIncrementAmount] = React.useState<number>(0);
+
+  const emptyFunction = () => {
+    return null;
+  };
+
   return (
     <>
-      <BaseButton />
+      <div>
+        {/* BaseButton with text and onClick */}
+        <BaseButton
+          text="signIn"
+          onClick={() => {
+            emptyFunction();
+          }}
+        />
+        {/* BaseButton with text, onClick, and icon */}
+        <BaseButton
+          text="signUp"
+          onClick={() => {
+            emptyFunction();
+          }}
+          icon={<ArrowRightIcon />}
+        />
+        {/* BaseButton with icon and onClick */}
+        <BaseButton
+          text=""
+          onClick={() => {
+            emptyFunction();
+          }}
+          icon={<ArrowRightIcon />}
+        />
+      </div>
       <LandingEmotionButton />
       <Banner3S title="Playground" doc="https://react-redux.js.org/"></Banner3S>
       <Button>{translate(txKeys.common.styledButton)}</Button>
