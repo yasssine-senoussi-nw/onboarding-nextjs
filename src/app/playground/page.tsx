@@ -19,7 +19,7 @@ const PlaygroundPage: React.FC = () => {
   const [incrementAmount, setIncrementAmount] = React.useState<number>(0);
   return (
     <>
-      <BaseButton text="" />
+      <BaseButton />
       <LandingEmotionButton />
       <Banner3S title="Playground" doc="https://react-redux.js.org/"></Banner3S>
       <Button>{translate(txKeys.common.styledButton)}</Button>
