@@ -1,6 +1,7 @@
 "use client";
 import * as React from "react";
 
+import BaseButton from "~components/baseButton";
 import { Button } from "~components/elements/styled";
 import { ArrowRightIcon } from "~components/icons/arrow";
 import Banner3S from "~components/landing/banner3s";
@@ -18,6 +19,7 @@ const PlaygroundPage: React.FC = () => {
   const [incrementAmount, setIncrementAmount] = React.useState<number>(0);
   return (
     <>
+      <BaseButton text="" />
       <LandingEmotionButton />
       <Banner3S title="Playground" doc="https://react-redux.js.org/"></Banner3S>
       <Button>{translate(txKeys.common.styledButton)}</Button>
