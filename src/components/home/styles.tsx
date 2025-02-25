@@ -6,8 +6,8 @@ export const Container = styled(Box)({
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
-  minWidth: "659px",
-  maxWidth: "750px",
+  minWidth: "41.188rem",
+  maxWidth: "46.875rem",
 });
 
 export const BackgroundContainer = styled("div")({
@@ -27,22 +27,22 @@ const Text = styled(Typography)({
   textAlign: "center",
 });
 
-export const Title = styled(Text)({
-  fontSize: "95px",
-  lineHeight: "100px",
-  fontWeight: 600,
-  marginBottom: "35px",
-});
+export const Title = styled(Text)(({ theme }) => ({
+  fontSize: "5.938rem",
+  lineHeight: "6.25rem",
+  fontWeight: theme.typography.fontWeightBold,
+  marginBottom: "2.188rem",
+}));
 
-export const Subtitle = styled(Text)({
-  fontWeight: 500,
-  lineHeight: "20px",
-  fontSize: "18px",
-  marginBottom: "33px",
-});
+export const Subtitle = styled(Text)(({ theme }) => ({
+  fontWeight: theme.typography.fontWeightMedium,
+  lineHeight: "1.25rem",
+  fontSize: "1.125rem",
+  marginBottom: "2.063rem",
+}));
 
 export const Logo = styled(Image)({
-  marginBottom: "32px",
-  width: "295px",
-  height: "63px",
+  marginBottom: "2",
+  width: "18.438rem",
+  height: "3.938rem",
 });

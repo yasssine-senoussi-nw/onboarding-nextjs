@@ -35,7 +35,7 @@ const Home: FC = () => {
           <Subtitle>
             <TranslateMessage txKey={txKeys.home.subtitle} />
           </Subtitle>
-          <Stack spacing="18px" direction="row">
+          <Stack spacing="1.125rem" direction="row">
             <Link href="/signin">
               <SecondaryButton onClick={handleJoinClick} text={translate(txKeys.home.buttons.join)} />
             </Link>
