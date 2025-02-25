@@ -8,6 +8,7 @@ import txKeys from "~i18n/translations";
 import { useTranslation } from "~i18n/useTranslation";
 
 import { Box, Stack } from "@mui/material";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import theodoLogo from "public/assets/theodo.png";
 import type { FC } from "react";
@@ -35,8 +36,13 @@ const Home: FC = () => {
             <TranslateMessage txKey={txKeys.home.subtitle} />
           </Subtitle>
           <Stack spacing="18px" direction="row">
-            <SecondaryButton onClick={handleJoinClick} text={translate(txKeys.home.buttons.join)} />
-            <PrimaryButton onClick={handleSigninClick} text={translate(txKeys.home.buttons.signUp)} />
+            <Link href="/signin">
+              <SecondaryButton onClick={handleJoinClick} text={translate(txKeys.home.buttons.join)} />
+            </Link>
+
+            <Link href="/signup">
+              <PrimaryButton onClick={handleSigninClick} text={translate(txKeys.home.buttons.signUp)} />
+            </Link>
           </Stack>
         </Container>
       </BackgroundContainer>
