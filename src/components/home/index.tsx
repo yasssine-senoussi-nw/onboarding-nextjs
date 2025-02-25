@@ -1,14 +1,28 @@
 "use client";
 
 import { BackgroundContainer, Container, Logo, Subtitle, Title } from "~components/home/styles";
+import { PrimaryButton } from "~components/primaryButton";
+import { SecondaryButton } from "~components/secondaryButton";
 import TranslateMessage from "~i18n/TranslateMessage";
 import txKeys from "~i18n/translations";
+import { useTranslation } from "~i18n/useTranslation";
 
 import { Box, Stack } from "@mui/material";
+import { useRouter } from "next/navigation";
 import theodoLogo from "public/assets/theodo.png";
 import type { FC } from "react";
 
 const Home: FC = () => {
+  const translate = useTranslation();
+  const router = useRouter();
+
+  const handleJoinClick = () => {
+    router.push("/signup");
+  };
+  const handleSigninClick = () => {
+    router.push("/signin");
+  };
+
   return (
     <Box>
       <BackgroundContainer className="landing">
@@ -20,7 +34,10 @@ const Home: FC = () => {
           <Subtitle>
             <TranslateMessage txKey={txKeys.home.subtitle} />
           </Subtitle>
-          <Stack spacing="18px" direction="row"></Stack>
+          <Stack spacing="18px" direction="row">
+            <SecondaryButton onClick={handleJoinClick} text={translate(txKeys.home.buttons.join)} />
+            <PrimaryButton onClick={handleSigninClick} text={translate(txKeys.home.buttons.signUp)} />
+          </Stack>
         </Container>
       </BackgroundContainer>
     </Box>
