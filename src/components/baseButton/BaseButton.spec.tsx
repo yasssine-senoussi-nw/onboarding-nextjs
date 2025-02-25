@@ -20,7 +20,7 @@ describe("BaseButton component", () => {
     expect(buttonElement).toBeInTheDocument();
   });
 
-  it("should call the onClick handler once when clicked", async () => {
+  it("should call the onClick handler when clicked", async () => {
     const user = userEvent.setup();
     await user.click(buttonElement);
     expect(defaultProps.onClick).toBeCalledTimes(1);
