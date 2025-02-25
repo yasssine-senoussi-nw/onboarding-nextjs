@@ -14,7 +14,7 @@ describe("BaseButton component", () => {
     buttonElement = buttonComponent.getByRole("button", { name: defaultProps.text });
   });
 
-  it("should be present in the DOM when rendered", () => {
+  it("should be in the DOM", () => {
     expect(buttonElement).toBeInTheDocument();
   });
 
