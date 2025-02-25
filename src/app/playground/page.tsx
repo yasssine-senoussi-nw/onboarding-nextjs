@@ -19,10 +19,6 @@ const PlaygroundPage: React.FC = () => {
   const count = useAppSelector(selectCount);
   const [incrementAmount, setIncrementAmount] = React.useState<number>(0);
 
-  const emptyFunction = () => {
-    return null;
-  };
-
   return (
     <>
       <div>
@@ -30,14 +26,14 @@ const PlaygroundPage: React.FC = () => {
         <BaseButton
           text="signIn"
           onClick={() => {
-            emptyFunction();
+            //
           }}
         />
         {/* BaseButton with text, onClick, and icon */}
         <BaseButton
           text="signUp"
           onClick={() => {
-            emptyFunction();
+            //
           }}
           icon={<ArrowRightIcon />}
         />
@@ -45,7 +41,7 @@ const PlaygroundPage: React.FC = () => {
         <BaseButton
           text=""
           onClick={() => {
-            emptyFunction();
+            //
           }}
           icon={<ArrowRightIcon />}
         />
@@ -55,7 +51,7 @@ const PlaygroundPage: React.FC = () => {
         <PrimaryButton
           text="Sign in"
           onClick={() => {
-            emptyFunction();
+            //
           }}
         />
       </div>
