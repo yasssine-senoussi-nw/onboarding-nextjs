@@ -298,26 +298,34 @@ exports[`Testing page example should render home 1`] = `
         <div
           class="emotion-6"
         >
-          <button
-            class="MuiButtonBase-root emotion-7"
-            tabindex="0"
-            type="button"
+          <a
+            href="/signin"
           >
-            Rejoindre
-            <span
-              class="MuiTouchRipple-root emotion-8"
-            />
-          </button>
-          <button
-            class="MuiButtonBase-root emotion-9"
-            tabindex="0"
-            type="button"
+            <button
+              class="MuiButtonBase-root emotion-7"
+              tabindex="0"
+              type="button"
+            >
+              Rejoindre
+              <span
+                class="MuiTouchRipple-root emotion-8"
+              />
+            </button>
+          </a>
+          <a
+            href="/signup"
           >
-            S'inscrire
-            <span
-              class="MuiTouchRipple-root emotion-8"
-            />
-          </button>
+            <button
+              class="MuiButtonBase-root emotion-9"
+              tabindex="0"
+              type="button"
+            >
+              S'inscrire
+              <span
+                class="MuiTouchRipple-root emotion-8"
+              />
+            </button>
+          </a>
         </div>
       </div>
     </div>
