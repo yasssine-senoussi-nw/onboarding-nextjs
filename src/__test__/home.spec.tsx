@@ -1,6 +1,7 @@
 import HomePage from "~app/page";
 
 import { render } from "./test-utils";
+jest.mock("next/navigation");
 
 const bgImageUrl = "/assets/svg/background.svg";
 
