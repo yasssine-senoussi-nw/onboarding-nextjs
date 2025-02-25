@@ -10,6 +10,8 @@ describe("BaseButton component", () => {
   let buttonElement: HTMLElement;
 
   beforeEach(() => {
+    // reset the mock
+    jest.clearAllMocks();
     const buttonComponent = render(<BaseButton text={defaultProps.text} onClick={defaultProps.onClick}></BaseButton>);
     buttonElement = buttonComponent.getByRole("button", { name: defaultProps.text });
   });
@@ -22,5 +24,12 @@ describe("BaseButton component", () => {
     const user = userEvent.setup();
     await user.click(buttonElement);
     expect(defaultProps.onClick).toBeCalledTimes(1);
+  });
+
+  it("should call the onClick handler twice when clicked twice", async () => {
+    const user = userEvent.setup();
+    await user.click(buttonElement);
+    await user.click(buttonElement);
+    expect(defaultProps.onClick).toBeCalledTimes(2);
   });
 });
