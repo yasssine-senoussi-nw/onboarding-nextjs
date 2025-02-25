@@ -9,6 +9,6 @@ export const StyledPrimaryButton = styled(BaseButton)(({ theme }) => ({
     backgroundColor: theme.palette.primary.light,
     color: theme.palette.primary.contrastText,
   },
-  fontWeight: 600,
-  fontFamily: "Neue Haas Grotesk Display Pro",
+  fontWeight: theme.typography.fontWeightBold,
+  fontFamily: theme.typography.fontFamily,
 }));
