@@ -34,8 +34,6 @@ describe("PrimaryButton component", () => {
   });
 
   it("should change the background color when hovered", () => {
-    // user.hover(...), user.unhover(...) and fireEvent are broken
-    // jest can't simulate an user interaction directly
     expect(buttonElement).toHaveStyle("background-color: white");
     expect(buttonElement).toHaveStyle(`color: ${muiTheme.palette.secondary.main}`);
   });
