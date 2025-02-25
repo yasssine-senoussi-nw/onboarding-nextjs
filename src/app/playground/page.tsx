@@ -6,6 +6,7 @@ import { Button } from "~components/elements/styled";
 import { ArrowRightIcon } from "~components/icons/arrow";
 import Banner3S from "~components/landing/banner3s";
 import { LandingEmotionButton } from "~components/landing/LandingEmotionButton";
+import { PrimaryButton } from "~components/primaryButton";
 import txKeys from "~i18n/translations";
 import { useTranslation } from "~i18n/useTranslation";
 import { useAppDispatch, useAppSelector } from "~store";
@@ -18,10 +19,6 @@ const PlaygroundPage: React.FC = () => {
   const count = useAppSelector(selectCount);
   const [incrementAmount, setIncrementAmount] = React.useState<number>(0);
 
-  const emptyFunction = () => {
-    return null;
-  };
-
   return (
     <>
       <div>
@@ -29,14 +26,14 @@ const PlaygroundPage: React.FC = () => {
         <BaseButton
           text="signIn"
           onClick={() => {
-            emptyFunction();
+            //
           }}
         />
         {/* BaseButton with text, onClick, and icon */}
         <BaseButton
           text="signUp"
           onClick={() => {
-            emptyFunction();
+            //
           }}
           icon={<ArrowRightIcon />}
         />
@@ -44,9 +41,18 @@ const PlaygroundPage: React.FC = () => {
         <BaseButton
           text=""
           onClick={() => {
-            emptyFunction();
+            //
           }}
           icon={<ArrowRightIcon />}
+        />
+      </div>
+      <div>
+        {/* PrimaryButton */}
+        <PrimaryButton
+          text="Sign in"
+          onClick={() => {
+            //
+          }}
         />
       </div>
       <LandingEmotionButton />
