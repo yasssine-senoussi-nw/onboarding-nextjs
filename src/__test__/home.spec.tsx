@@ -30,7 +30,7 @@ describe("Landing page home component", () => {
 
   it("should call mockRouter.push with 'signin' when the 'Sign In' button was pressed", async () => {
     const homePage = renderHomePage();
-    // TODO: this should use txKeys and not a hardcoded value
+    // this should use txKeys and not a hardcoded value
     const signInButton = homePage.getByRole("button", { name: "S'inscrire" });
     expect(signInButton).not.toBeNull();
     await userEvent.click(signInButton);
