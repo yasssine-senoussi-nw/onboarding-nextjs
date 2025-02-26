@@ -11,9 +11,8 @@ import { Box, Stack } from "@mui/material";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import theodoLogo from "public/assets/theodo.png";
-import type { FC } from "react";
 
-const Home: FC = () => {
+export default function Home(): JSX.Element {
   const translate = useTranslation();
   const router = useRouter();
 
@@ -48,6 +47,4 @@ const Home: FC = () => {
       </BackgroundContainer>
     </Box>
   );
-};
-
-export default Home;
+}

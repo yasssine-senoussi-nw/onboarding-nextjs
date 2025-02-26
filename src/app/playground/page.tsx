@@ -12,7 +12,7 @@ import { useTranslation } from "~i18n/useTranslation";
 import { useAppDispatch, useAppSelector } from "~store";
 import { decrement, increment, incrementByAmount, selectCount } from "~store/counter/slice";
 
-const PlaygroundPage: React.FC = () => {
+export default function PlaygroundPage(): JSX.Element {
   const translate = useTranslation();
 
   const dispatch = useAppDispatch();
@@ -80,6 +80,4 @@ const PlaygroundPage: React.FC = () => {
       </div>
     </>
   );
-};
-
-export default PlaygroundPage;
+}

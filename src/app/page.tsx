@@ -6,8 +6,6 @@ export const metadata: Metadata = {
   title: "Theodo Dojo",
 };
 
-const HomePage: React.FC = () => {
+export default function HomePage(): JSX.Element {
   return <Home />;
-};
-
-export default HomePage;
+}

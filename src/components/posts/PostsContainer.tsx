@@ -1,7 +1,7 @@
 "use client";
 import { usePostMutation, usePostsQuery } from "~hooks/posts";
 
-export const PostsContainer: React.FC = () => {
+export function PostsContainer(): JSX.Element {
   const { loading, posts } = usePostsQuery();
   const { mutate: savePost } = usePostMutation();
 
@@ -26,4 +26,4 @@ export const PostsContainer: React.FC = () => {
       </div>
     </>
   );
-};
+}
