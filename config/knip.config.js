@@ -23,6 +23,7 @@ module.exports = {
   ],
   project: ["src/**/*.{js,ts,jsx,tsx}"],
   ignoreDependencies: ["sharp", "@emotion/jest", "@release-it/conventional-changelog"],
+  ignore: ["src/__test__/Renderer.tsx"],
 };
 
 // More documentation on configuration: https://knip.dev/reference/configuration
