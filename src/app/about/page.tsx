@@ -6,12 +6,11 @@ export const metadata: Metadata = {
   title: "About",
 };
 
-const AboutPage: React.FC = () => {
+export default function AboutPage(): JSX.Element {
   return (
     <div>
       <h1>{SITE_CONFIG.title}</h1>
       <h2>{SITE_CONFIG.description}</h2>
     </div>
   );
-};
-export default AboutPage;
+}

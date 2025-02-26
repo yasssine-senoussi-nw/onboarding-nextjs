@@ -13,9 +13,7 @@ interface ITranslateMessageProps {
   shouldUnescape?: boolean;
 }
 
-const TranslateMessage: React.FC<ITranslateMessageProps> = ({ txKey, ...props }) => {
+export default function TranslateMessage({ txKey, ...props }: ITranslateMessageProps): JSX.Element {
   const translation = useTranslation();
   return <Trans t={translation.t} i18nKey={txKey} {...props} />;
-};
-
-export default TranslateMessage;
+}

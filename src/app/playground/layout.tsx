@@ -4,7 +4,7 @@ export const metadata = {
   title: "Playground",
 };
 
-const PlaygroundLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
+export default function PlaygroundLayout({ children }: React.PropsWithChildren): JSX.Element {
   return (
     <div>
       <h1>{SITE_CONFIG.title}</h1>
@@ -14,6 +14,4 @@ const PlaygroundLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
       {children}
     </div>
   );
-};
-
-export default PlaygroundLayout;
+}
