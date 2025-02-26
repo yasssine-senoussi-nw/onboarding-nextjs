@@ -1,8 +1,9 @@
 "use client";
 
-import { BackgroundContainer, Container, Logo, Subtitle, Title } from "~components/home/styles";
+import { BackgroundContainer, Container, KnownUserContainer, Logo, Subtitle, Title } from "~components/home/styles";
 import { PrimaryButton } from "~components/primaryButton";
 import { SecondaryButton } from "~components/secondaryButton";
+import useLastConnectedUser from "~hooks/useLastConnectedUser";
 import TranslateMessage from "~i18n/TranslateMessage";
 import txKeys from "~i18n/translations";
 import { useTranslation } from "~i18n/useTranslation";
@@ -14,6 +15,7 @@ import theodoLogo from "public/assets/theodo.png";
 
 export default function Home(): JSX.Element {
   const translate = useTranslation();
+  const lastConnectedUser = useLastConnectedUser();
   const router = useRouter();
 
   const handleJoinClick = () => {
@@ -27,13 +29,29 @@ export default function Home(): JSX.Element {
     <Box>
       <BackgroundContainer className="landing">
         <Container>
+          {/* Affichage conditionnel de l'utilisateur */}
+          {lastConnectedUser !== null && (
+            <KnownUserContainer>
+              <Link
+                href={{
+                  pathname: "/signin",
+                  query: { prefilled: "true" },
+                }}
+              >
+                Continue as <strong>{lastConnectedUser}</strong>
+              </Link>
+            </KnownUserContainer>
+          )}
+
           <Logo src={theodoLogo} alt="Theodo" />
+
           <Title>
             <TranslateMessage txKey={txKeys.home.title} />
           </Title>
           <Subtitle>
             <TranslateMessage txKey={txKeys.home.subtitle} />
           </Subtitle>
+
           <Stack spacing="1.125rem" direction="row">
             <Link href="/signin">
               <SecondaryButton onClick={handleJoinClick} text={translate(txKeys.home.buttons.join)} />
