@@ -1,48 +1,47 @@
 import { Box, styled, Typography } from "@mui/material";
 import Image from "next/image";
 
-export const Container = styled(Box)({
+export const Container = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
-  minWidth: "41.188rem",
-  maxWidth: "46.875rem",
-});
+  maxWidth: theme.spacing(theme.spacingUnits.maxWindowWidth),
+}));
 
-export const BackgroundContainer = styled("div")({
-  backgroundColor: "black",
+export const BackgroundContainer = styled(Box)(({ theme }) => ({
+  backgroundColor: theme.palette.common.black,
   backgroundImage: "url(/assets/svg/background.svg)",
   backgroundSize: "cover",
   backgroundRepeat: "no-repeat",
   height: "100vh",
-  width: "100wh",
+  width: "100vw",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-});
+}));
 
-const Text = styled(Typography)({
-  color: "white",
+const Text = styled(Typography)(({ theme }) => ({
+  color: theme.palette.common.white,
   textAlign: "center",
-});
+}));
 
 export const Title = styled(Text)(({ theme }) => ({
-  fontSize: "5.938rem",
-  lineHeight: "6.25rem",
+  fontSize: theme.typography.hero.fontSize,
+  lineHeight: theme.typography.hero.lineHeight,
   fontWeight: theme.typography.fontWeightBold,
-  marginBottom: "2.188rem",
+  marginBottom: theme.spacing(theme.spacingUnits.section),
 }));
 
 export const Subtitle = styled(Text)(({ theme }) => ({
+  fontSize: theme.typography.headline.fontSize,
+  lineHeight: theme.typography.headline.lineHeight,
   fontWeight: theme.typography.fontWeightMedium,
-  lineHeight: "1.25rem",
-  fontSize: "1.125rem",
-  marginBottom: "2.063rem",
+  marginBottom: theme.spacing(theme.spacingUnits.element),
 }));
 
-export const Logo = styled(Image)({
-  marginBottom: "2",
-  width: "18.438rem",
-  height: "3.938rem",
-});
+export const Logo = styled(Image)(({ theme }) => ({
+  marginBottom: theme.spacing(theme.spacingUnits.logo),
+  width: theme.dimensions.logo.width.md,
+  height: theme.dimensions.logo.height.md,
+}));

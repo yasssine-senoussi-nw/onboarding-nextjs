@@ -2,13 +2,13 @@
 
 exports[`Testing page example should render home 1`] = `
 .emotion-1 {
-  background-color: black;
+  background-color: #000000;
   background-image: url(/assets/svg/background.svg);
   -webkit-background-size: cover;
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
-  width: 100wh;
+  width: 100vw;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -39,44 +39,41 @@ exports[`Testing page example should render home 1`] = `
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  min-width: 41.188rem;
-  max-width: 46.875rem;
+  max-width: 800px;
 }
 
 .emotion-3 {
-  margin-bottom: 2;
-  width: 18.438rem;
-  height: 3.938rem;
+  margin-bottom: 16px;
+  width: 19rem;
+  height: 4rem;
 }
 
 .emotion-4 {
   margin: 0;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: Neue Haas Grotesk Display Pro,Arial,sans-serif;
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.5;
-  letter-spacing: 0.00938em;
-  color: white;
+  color: #FFFFFF;
   text-align: center;
-  font-size: 5.938rem;
-  line-height: 6.25rem;
-  font-weight: 700;
-  margin-bottom: 2.188rem;
+  font-size: 6rem;
+  line-height: 6rem;
+  font-weight: 600;
+  margin-bottom: 64px;
 }
 
 .emotion-5 {
   margin: 0;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: Neue Haas Grotesk Display Pro,Arial,sans-serif;
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.5;
-  letter-spacing: 0.00938em;
-  color: white;
+  color: #FFFFFF;
   text-align: center;
-  font-weight: 500;
+  font-size: 1.25rem;
   line-height: 1.25rem;
-  font-size: 1.125rem;
-  margin-bottom: 2.063rem;
+  font-weight: 500;
+  margin-bottom: 28px;
 }
 
 .emotion-6 {
@@ -147,10 +144,10 @@ exports[`Testing page example should render home 1`] = `
   gap: 0.625rem;
   border-width: 0.125rem;
   border-style: solid;
-  border-color: #fff;
+  border-color: #FFFFFF;
   background-color: transparent;
-  font-weight: 700;
-  color: #fff;
+  font-weight: 600;
+  color: #FFFFFF;
 }
 
 .emotion-7::-moz-focus-inner {
@@ -237,9 +234,9 @@ exports[`Testing page example should render home 1`] = `
   align-items: center;
   gap: 0.625rem;
   background-color: white;
-  color: #9c27b0;
-  font-weight: 700;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  color: #66666c;
+  font-weight: 600;
+  font-family: Neue Haas Grotesk Display Pro,Arial,sans-serif;
 }
 
 .emotion-9::-moz-focus-inner {
@@ -259,8 +256,8 @@ exports[`Testing page example should render home 1`] = `
 }
 
 .emotion-9:hover {
-  background-color: #42a5f5;
-  color: #fff;
+  background-color: #EF7371;
+  color: #FFF;
 }
 
 <div>
@@ -268,7 +265,7 @@ exports[`Testing page example should render home 1`] = `
     class="MuiBox-root emotion-0"
   >
     <div
-      class="landing emotion-1"
+      class="landing MuiBox-root emotion-1"
     >
       <div
         class="MuiBox-root emotion-2"
