@@ -1,9 +1,9 @@
-import React from "react";
-
 import type { RenderResult } from "~__test__/test-utils";
 import { render as _render } from "~__test__/test-utils";
+import MuiThemeProvider from "~app/muiThemeProvider/MuiThemeProvider";
 import { TranslationProvider } from "~i18n";
 
+import type { ComponentType } from "react";
 import type { ReactElement } from "react";
 
 export class Renderer {
@@ -14,18 +14,23 @@ export class Renderer {
   }
 
   public withTranslation(): this {
-    this.ui = <TranslationProvider>{this.ui}</TranslationProvider>;
-    return this;
+    return this.withProvider(TranslationProvider);
   }
 
-  public withAllProviders(providers: ReactElement[]): this {
-    this.ui = providers.reduceRight((childElement, currentProvider) => {
-      return React.cloneElement(currentProvider, {}, childElement);
-    }, this.ui);
-    return this;
+  public withThemeProvider(): this {
+    return this.withProvider(MuiThemeProvider);
+  }
+
+  public withAllProviders(): this {
+    return this.withTranslation().withThemeProvider();
   }
 
   public render(): RenderResult {
     return _render(this.ui);
+  }
+
+  private withProvider<T>(Provider: ComponentType<T>, props?: T): this {
+    this.ui = <Provider {...(props as T)}>{this.ui}</Provider>;
+    return this;
   }
 }
