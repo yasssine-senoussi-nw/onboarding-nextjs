@@ -1,9 +1,64 @@
 import { NeueFonts } from "~app/muiThemeProvider/mui-theme-fonts";
 
-import type { Theme } from "@mui/material/styles";
 import { createTheme } from "@mui/material/styles";
 
-const muiTheme: Theme = createTheme({
+declare module "@mui/material/styles" {
+  export interface Theme {
+    spacingUnits: {
+      maxWindowWidth: number;
+      section: number;
+      element: number;
+      logo: number;
+    };
+
+    dimensions: {
+      logo: {
+        width: {
+          xs: string;
+          md: string;
+        };
+        height: {
+          xs: string;
+          md: string;
+        };
+      };
+    };
+  }
+
+  export interface ThemeOptions {
+    spacingUnits: {
+      maxWindowWidth: number;
+      section: number;
+      element: number;
+      logo: number;
+    };
+
+    dimensions: {
+      logo: {
+        width: {
+          xs: string;
+          md: string;
+        };
+        height: {
+          xs: string;
+          md: string;
+        };
+      };
+    };
+  }
+
+  interface TypographyVariants {
+    hero: React.CSSProperties;
+    headline: React.CSSProperties;
+  }
+
+  interface TypographyVariantsOptions {
+    hero?: React.CSSProperties;
+    headline?: React.CSSProperties;
+  }
+}
+
+const muiTheme = createTheme({
   palette: {
     mode: "dark",
     common: {
@@ -48,17 +103,46 @@ const muiTheme: Theme = createTheme({
       secondary: "#CCCCCC",
     },
   },
+
   typography: {
     fontFamily: ["Neue Haas Grotesk Display Pro", "Arial", "sans-serif"].join(","),
     fontWeightLight: 300,
     fontWeightRegular: 400,
     fontWeightMedium: 500,
-    fontWeightBold: 700,
+    fontWeightBold: 600,
+    hero: {
+      fontSize: "6rem",
+      lineHeight: "6rem",
+    },
+    headline: {
+      fontSize: "1.25rem",
+      lineHeight: "1.25rem",
+    },
   },
 
   components: {
     MuiCssBaseline: {
       styleOverrides: NeueFonts,
+    },
+  },
+
+  spacingUnits: {
+    maxWindowWidth: 100,
+    section: 8, // 8 * 4px = 32px
+    element: 3.5, // 3.5 * 4px = 14px
+    logo: 2, // 2 * 4px = 8px
+  },
+
+  dimensions: {
+    logo: {
+      width: {
+        xs: "12rem",
+        md: "19rem",
+      },
+      height: {
+        xs: "3rem",
+        md: "4rem",
+      },
     },
   },
 });
