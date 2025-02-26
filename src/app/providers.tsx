@@ -14,7 +14,7 @@ import { CssBaseline } from "@mui/material";
 import { SnackbarProvider } from "notistack";
 import { QueryClientProvider } from "react-query";
 
-export const Providers: React.FC<React.PropsWithChildren> = ({ children }) => {
+export function Providers({ children }: React.PropsWithChildren): JSX.Element {
   return (
     <RootStyleRegistry>
       <StrictMode>
@@ -31,4 +31,4 @@ export const Providers: React.FC<React.PropsWithChildren> = ({ children }) => {
       </StrictMode>
     </RootStyleRegistry>
   );
-};
+}

@@ -6,9 +6,8 @@ import txKeys from "~i18n/translations";
 
 import { Box, Stack } from "@mui/material";
 import theodoLogo from "public/assets/theodo.png";
-import type { FC } from "react";
 
-const Home: FC = () => {
+export default function Home(): JSX.Element {
   return (
     <Box>
       <BackgroundContainer className="landing">
@@ -25,6 +24,4 @@ const Home: FC = () => {
       </BackgroundContainer>
     </Box>
   );
-};
-
-export default Home;
+}

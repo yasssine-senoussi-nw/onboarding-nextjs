@@ -10,7 +10,7 @@ import { useServerInsertedHTML } from "next/navigation";
  * @see https://nextjs.org/docs/app/building-your-application/styling/css-in-js#configuring-css-in-js-in-app
  * @see https://github.com/emotion-js/emotion/issues/2928
  */
-export const RootStyleRegistry: React.FC<React.PropsWithChildren> = ({ children }) => {
+export function RootStyleRegistry({ children }: React.PropsWithChildren): JSX.Element {
   const [emotionCache] = useState(() => {
     const cache = createCache({ key: "css" });
     cache.compat = true;
@@ -30,4 +30,4 @@ export const RootStyleRegistry: React.FC<React.PropsWithChildren> = ({ children 
   });
 
   return <CacheProvider value={emotionCache}>{children}</CacheProvider>;
-};
+}

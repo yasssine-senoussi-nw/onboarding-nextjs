@@ -1,5 +1,7 @@
 import "../styles/globals.css";
 
+import React from "react";
+
 import { SITE_CONFIG } from "~config/site";
 
 import { Providers } from "./providers";
@@ -28,7 +30,7 @@ export const metadata: Metadata = {
   },
 };
 
-const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
+export default function RootLayout({ children }: React.PropsWithChildren): JSX.Element {
   return (
     <html lang="en">
       <body>
@@ -38,6 +40,4 @@ const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
       </body>
     </html>
   );
-};
-
-export default RootLayout;
+}

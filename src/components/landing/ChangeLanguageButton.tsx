@@ -7,7 +7,7 @@ import { Language } from "~i18n/types";
 import { useLanguage } from "~i18n/useLanguage";
 import { fireAndNotifyOnError } from "~utils/notistackRef";
 
-const ChangeLanguageButton: React.FC = () => {
+export default function ChangeLanguageButton(): JSX.Element {
   const [language, changeLanguage] = useLanguage();
 
   return (
@@ -18,5 +18,4 @@ const ChangeLanguageButton: React.FC = () => {
       <TranslateMessage txKey={txKeys.common.changeLanguage} />
     </button>
   );
-};
-export default ChangeLanguageButton;
+}
