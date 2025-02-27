@@ -2,6 +2,11 @@ import { Renderer } from "~__test__/Renderer";
 import type { RenderResult } from "~__test__/test-utils";
 import { userEvent } from "~__test__/test-utils";
 import HomePage from "~app/page";
+import txKeys from "~i18n/translations";
+
+enum Constants {
+  bgImageUrl = "/assets/svg/background.svg",
+}
 
 const mockRouter = jest.fn();
 jest.mock("next/navigation", () => ({
@@ -10,9 +15,16 @@ jest.mock("next/navigation", () => ({
   }),
 }));
 
-enum Constants {
-  bgImageUrl = "/assets/svg/background.svg",
-}
+// eslint-disable-next-line @typescript-eslint/no-unsafe-return
+jest.mock("react-i18next", () => ({
+  ...jest.requireActual("react-i18next"),
+  useTranslation: () => {
+    return {
+      // eslint-disable-next-line id-length
+      t: (str: string) => str,
+    };
+  },
+}));
 
 describe("Landing page home component", () => {
   it("should be have one `div` with className 'landing'", () => {
@@ -28,10 +40,10 @@ describe("Landing page home component", () => {
     expect(landing[0]).toHaveStyle(`background-image: url(${Constants.bgImageUrl})`);
   });
 
-  it("should call mockRouter.push with 'signin' when the 'Sign In' button was pressed", async () => {
+  it("should call mockRouter with 'signin' when the 'Sign In' button was pressed", async () => {
     const homePage = renderHomePage();
     // this should use txKeys and not a hardcoded value
-    const signInButton = homePage.getByRole("button", { name: "S'inscrire" });
+    const signInButton = homePage.getByRole("button", { name: txKeys.home.buttons.join });
     expect(signInButton).not.toBeNull();
     await userEvent.click(signInButton);
     expect(mockRouter).toHaveBeenCalledWith("/signin");
