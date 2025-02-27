@@ -23,17 +23,15 @@ export default function PlaygroundPage(): JSX.Element {
   return (
     <>
       <div>
-        <TextInput type="email" label="Email" variant="standard" />
+        <TextInput type="email" variant="standard" />
       </div>
       <div>
-        {/* BaseButton with text and onClick */}
         <BaseButton
           text="signIn"
           onClick={() => {
             //
           }}
         />
-        {/* BaseButton with text, onClick, and icon */}
         <BaseButton
           text="signUp"
           onClick={() => {
@@ -41,7 +39,6 @@ export default function PlaygroundPage(): JSX.Element {
           }}
           icon={<ArrowRightIcon />}
         />
-        {/* BaseButton with icon and onClick */}
         <BaseButton
           text=""
           onClick={() => {
@@ -51,7 +48,6 @@ export default function PlaygroundPage(): JSX.Element {
         />
       </div>
       <div>
-        {/* PrimaryButton */}
         <PrimaryButton
           text="Sign in"
           onClick={() => {
