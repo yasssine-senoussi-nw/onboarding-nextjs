@@ -1,26 +1,16 @@
-import { useEffect, useState } from "react";
+import { LastLoggedInUserSchema } from "~schemas/LastLoggedInUser";
 
-import { LastLoggedInUserSchema, type LastLoggedInUserType } from "~schemas/LastLoggedInUser";
+import { ZodStorageBuilder } from "zod-storage";
 
-import { useStorage } from "./useStorage";
+type UseLastConnectedUserType = {
+  get: () => string | null;
+  set: (name: string) => void;
+};
 
-enum Constants {
-  LAST_CONNECTED_FULLNAME_KEY = "LAST_CONNECTED_FULLNAME",
-}
-
-export default function useLastConnectedUser(): LastLoggedInUserType {
-  const [user, setUser] = useState<LastLoggedInUserType>(null);
-  const storage = useStorage();
-
-  useEffect(() => {
-    try {
-      const storedValue = storage.getItem(Constants.LAST_CONNECTED_FULLNAME_KEY);
-      const parsedUser = LastLoggedInUserSchema.parse(storedValue);
-      setUser(parsedUser);
-    } catch {
-      setUser(null);
-    }
-  }, [storage]);
-
-  return user;
-}
+export const useLastConnectedUser = (): UseLastConnectedUserType => {
+  const storage = new ZodStorageBuilder(LastLoggedInUserSchema).build();
+  return {
+    get: storage.name.get,
+    set: storage.name.set,
+  };
+};
