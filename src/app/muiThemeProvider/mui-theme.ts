@@ -50,11 +50,13 @@ declare module "@mui/material/styles" {
   interface TypographyVariants {
     hero: React.CSSProperties;
     headline: React.CSSProperties;
+    label: React.CSSProperties;
   }
 
   interface TypographyVariantsOptions {
     hero?: React.CSSProperties;
     headline?: React.CSSProperties;
+    label: React.CSSProperties;
   }
 }
 
@@ -117,6 +119,10 @@ const muiTheme = createTheme({
     headline: {
       fontSize: "1.25rem",
       lineHeight: "1.25rem",
+    },
+    label: {
+      fontSize: "1rem",
+      lineHeight: "1rem",
     },
   },
 
