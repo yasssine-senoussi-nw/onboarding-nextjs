@@ -7,6 +7,7 @@ import { ArrowRightIcon } from "~components/icons/arrow";
 import Banner3S from "~components/landing/banner3s";
 import { LandingEmotionButton } from "~components/landing/LandingEmotionButton";
 import { PrimaryButton } from "~components/primaryButton";
+import TextInput from "~components/textInput";
 import txKeys from "~i18n/translations";
 import { useTranslation } from "~i18n/useTranslation";
 import { useAppDispatch, useAppSelector } from "~store";
@@ -21,6 +22,9 @@ export default function PlaygroundPage(): JSX.Element {
 
   return (
     <>
+      <div>
+        <TextInput type="email" label="Email" variant="standard" />
+      </div>
       <div>
         {/* BaseButton with text and onClick */}
         <BaseButton
