@@ -17,10 +17,10 @@ export default function Home(): JSX.Element {
   const router = useRouter();
 
   const handleJoinClick = () => {
-    router.push("/signup");
+    router.push("/signin");
   };
   const handleSigninClick = () => {
-    router.push("/signin");
+    router.push("/signup");
   };
 
   return (
