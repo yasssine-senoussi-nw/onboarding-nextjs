@@ -1,7 +1,7 @@
 import type { RenderResult } from "~__test__/test-utils";
 import { render as _render } from "~__test__/test-utils";
 import MuiThemeProvider from "~app/muiThemeProvider/MuiThemeProvider";
-import { TranslationProvider } from "~i18n";
+import { TestTranslationProvider } from "~i18n";
 
 import type { ComponentType } from "react";
 import type { ReactElement } from "react";
@@ -14,7 +14,7 @@ export class Renderer {
   }
 
   public withTranslation(): this {
-    return this.withProvider(TranslationProvider);
+    return this.withProvider(TestTranslationProvider);
   }
 
   public withThemeProvider(): this {
