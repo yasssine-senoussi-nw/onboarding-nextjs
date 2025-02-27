@@ -68,6 +68,9 @@ importers:
       zod:
         specifier: ^3.24.2
         version: 3.24.2
+      zod-storage:
+        specifier: ^0.0.2
+        version: 0.0.2(zod@3.24.2)
     devDependencies:
       '@commitlint/cli':
         specifier: ^18.4.4
@@ -5295,9 +5298,6 @@ packages:
   tsconfig-paths@3.15.0:
     resolution: {integrity: sha512-2Ac2RgzDe/cn48GvOe3M+o82pEFewD3UPbyoUHHdKasHwJKjds4fLXWf/Ux5kATBKN20oaFGu+jbElp1pos0mg==}
 
-  tslib@2.5.0:
-    resolution: {integrity: sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg==}
-
   tslib@2.6.2:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
 
@@ -5653,6 +5653,11 @@ packages:
   yocto-queue@1.0.0:
     resolution: {integrity: sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==}
     engines: {node: '>=12.20'}
+
+  zod-storage@0.0.2:
+    resolution: {integrity: sha512-SOsxtGAm4DLwYN3rao6KfxT+IRY7rGlVCvvCNJTerLleKP3COJXSy9/tBJGWX0ohMclvAV9QQoOTa/Csq7WbAg==}
+    peerDependencies:
+      zod: ^3.22.4
 
   zod-validation-error@3.3.0:
     resolution: {integrity: sha512-Syib9oumw1NTqEv4LT0e6U83Td9aVRk9iTXPUQr1otyV1PuXQKOvOwhMNqZIq5hluzHP2pMgnOmHEo7kPdI2mw==}
@@ -6833,7 +6838,7 @@ snapshots:
       open: 8.4.0
       picocolors: 1.0.0
       tiny-glob: 0.2.9
-      tslib: 2.5.0
+      tslib: 2.6.2
 
   '@pnpm/config.env-replace@1.1.0': {}
 
@@ -7631,7 +7636,7 @@ snapshots:
   camel-case@4.1.2:
     dependencies:
       pascal-case: 3.1.2
-      tslib: 2.5.0
+      tslib: 2.6.2
 
   camelcase-css@2.0.1: {}
 
@@ -7656,7 +7661,7 @@ snapshots:
   capital-case@1.0.4:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.5.0
+      tslib: 2.6.2
       upper-case-first: 2.0.2
 
   chalk@2.4.2:
@@ -7690,7 +7695,7 @@ snapshots:
       path-case: 3.0.4
       sentence-case: 3.0.4
       snake-case: 3.0.4
-      tslib: 2.5.0
+      tslib: 2.6.2
 
   char-regex@1.0.2: {}
 
@@ -7823,7 +7828,7 @@ snapshots:
   constant-case@3.0.4:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.5.0
+      tslib: 2.6.2
       upper-case: 2.0.2
 
   conventional-changelog-angular@7.0.0:
@@ -8180,7 +8185,7 @@ snapshots:
   dot-case@3.0.4:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.5.0
+      tslib: 2.6.2
 
   dot-prop@5.3.0:
     dependencies:
@@ -9125,7 +9130,7 @@ snapshots:
   header-case@2.0.4:
     dependencies:
       capital-case: 1.0.4
-      tslib: 2.5.0
+      tslib: 2.6.2
 
   hoist-non-react-statics@3.3.2:
     dependencies:
@@ -10242,7 +10247,7 @@ snapshots:
 
   lower-case@2.0.2:
     dependencies:
-      tslib: 2.5.0
+      tslib: 2.6.2
 
   lowercase-keys@3.0.0: {}
 
@@ -10421,7 +10426,7 @@ snapshots:
   no-case@3.0.4:
     dependencies:
       lower-case: 2.0.2
-      tslib: 2.5.0
+      tslib: 2.6.2
 
   node-domexception@1.0.0: {}
 
@@ -10741,7 +10746,7 @@ snapshots:
   param-case@3.0.4:
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.5.0
+      tslib: 2.6.2
 
   parent-module@1.0.1:
     dependencies:
@@ -10787,12 +10792,12 @@ snapshots:
   pascal-case@3.1.2:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.5.0
+      tslib: 2.6.2
 
   path-case@3.0.4:
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.5.0
+      tslib: 2.6.2
 
   path-exists@4.0.0: {}
 
@@ -11276,7 +11281,7 @@ snapshots:
 
   rxjs@7.8.1:
     dependencies:
-      tslib: 2.5.0
+      tslib: 2.6.2
 
   safe-array-concat@1.1.2:
     dependencies:
@@ -11332,7 +11337,7 @@ snapshots:
   sentence-case@3.0.4:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.5.0
+      tslib: 2.6.2
       upper-case-first: 2.0.2
 
   set-blocking@2.0.0: {}
@@ -11434,7 +11439,7 @@ snapshots:
   snake-case@3.0.4:
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.5.0
+      tslib: 2.6.2
 
   socks-proxy-agent@8.0.3:
     dependencies:
@@ -11646,7 +11651,7 @@ snapshots:
   synckit@0.8.5:
     dependencies:
       '@pkgr/utils': 2.3.1
-      tslib: 2.5.0
+      tslib: 2.6.2
 
   tailwindcss@3.2.4(postcss@8.4.21):
     dependencies:
@@ -11701,7 +11706,7 @@ snapshots:
 
   title-case@3.0.3:
     dependencies:
-      tslib: 2.5.0
+      tslib: 2.6.2
 
   tmp@0.0.33:
     dependencies:
@@ -11752,8 +11757,6 @@ snapshots:
       json5: 1.0.2
       minimist: 1.2.8
       strip-bom: 3.0.0
-
-  tslib@2.5.0: {}
 
   tslib@2.6.2: {}
 
@@ -11893,11 +11896,11 @@ snapshots:
 
   upper-case-first@2.0.2:
     dependencies:
-      tslib: 2.5.0
+      tslib: 2.6.2
 
   upper-case@2.0.2:
     dependencies:
-      tslib: 2.5.0
+      tslib: 2.6.2
 
   uri-js@4.4.1:
     dependencies:
@@ -12128,6 +12131,11 @@ snapshots:
   yocto-queue@0.1.0: {}
 
   yocto-queue@1.0.0: {}
+
+  zod-storage@0.0.2(zod@3.24.2):
+    dependencies:
+      tslib: 2.6.2
+      zod: 3.24.2
 
   zod-validation-error@3.3.0(zod@3.24.2):
     dependencies:
