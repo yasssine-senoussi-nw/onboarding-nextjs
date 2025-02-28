@@ -6,6 +6,19 @@
     "generalError": "An error has occurred",
     "styledButton": "Example of @emotion/styled button "
   },
+  "auth": {
+    "welcomeBack": "Welcome back",
+    "signin": "Sign in",
+    "signup": "Sign up",
+    "or": "OR",
+    "continueWith": {
+      "google": "Continue with Google",
+      "apple": "Continue with Apple"
+    },
+    "dontHaveAccount": "Don't have an account ? ",
+    "emailAddress": "Email address",
+    "password": "Password"
+  },
   "home": {
     "title": "Curated tools to gear you up!",
     "subtitle": "Join the Nimbleway worktools initiative to be well prepared for your daily tasks.",

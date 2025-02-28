@@ -1,12 +1,38 @@
-// app/signin/layout.tsx
-export default function SignInLayout(): JSX.Element {
-  return (
-    <div className="flex h-screen">
-      {/* Left hand side - image*/}
-      <div className="flex-1 bg-gray-100 hidden md:block"></div>
+"use client";
 
-      {/* Right hand side - form */}
-      <div className="flex-1 flex flex-col items-center justify-center p-8 bg-white"></div>
-    </div>
+import AuthImage from "~components/authImage/AuthImage";
+import { SignInForm } from "~components/signInForm/SignInForm";
+
+import { Grid } from "@mui/material";
+import microphoneImage from "public/assets/microphone.jpg";
+
+export default function SignInPage(): JSX.Element {
+  return (
+    <Grid container component="main" sx={{ minHeight: "100vh" }}>
+      <Grid
+        item
+        md={6}
+        sx={{
+          display: { xs: "none", md: "block" },
+          position: "relative",
+        }}
+      >
+        <AuthImage src={microphoneImage} />
+      </Grid>
+
+      <Grid
+        item
+        xs={12}
+        md={6}
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          bgcolor: "background.paper",
+        }}
+      >
+        <SignInForm />
+      </Grid>
+    </Grid>
   );
 }

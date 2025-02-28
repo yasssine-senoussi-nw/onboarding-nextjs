@@ -26,6 +26,8 @@ export default function Home(): JSX.Element {
     router.push("/signup");
   };
 
+  globalStorage.userName.set("Yassine ");
+
   const userName = globalStorage.userName.get();
   return (
     <Box>
