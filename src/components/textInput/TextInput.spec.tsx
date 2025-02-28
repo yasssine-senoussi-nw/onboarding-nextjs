@@ -14,7 +14,6 @@ describe("TextInput component", () => {
 
   beforeEach(() => {
     const textInputRenderResult = new Renderer(<TextInput {...defaultProps} />).withAllProviders().render();
-    expect(textInputRenderResult).not.toBeNull();
     textInputElement = textInputRenderResult.getByLabelText(defaultProps.label);
   });
 
