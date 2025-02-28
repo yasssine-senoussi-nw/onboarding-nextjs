@@ -1,7 +1,7 @@
 import type { RenderResult } from "~__test__/test-utils";
 import { render as _render } from "~__test__/test-utils";
 import MuiThemeProvider from "~app/muiThemeProvider/MuiThemeProvider";
-import { TestGlobalStorageProvider } from "~hooks/useGlobalStorage";
+import { TestGlobalStorageProvider } from "~hooks/globalStorage/useGlobalStorage.testprovider";
 import { TestTranslationProvider } from "~i18n";
 
 import type { ComponentType } from "react";

@@ -2,7 +2,7 @@
 
 import React, { StrictMode } from "react";
 
-import { GlobalStorageProvider } from "~hooks/useGlobalStorage";
+import { GlobalStorageProvider } from "~hooks/globalStorage/useGlobalStorage.provider";
 import { TranslationProvider } from "~i18n";
 import { StoreProvider } from "~store/provider";
 import notistackRef from "~utils/notistackRef";

@@ -3,7 +3,7 @@
 import { BackgroundContainer, Container, KnownUserContainer, Logo, Subtitle, Title } from "~components/home/styles";
 import { PrimaryButton } from "~components/primaryButton";
 import { SecondaryButton } from "~components/secondaryButton";
-import { useGlobalStorage } from "~hooks/useGlobalStorage";
+import { useGlobalStorage } from "~hooks/globalStorage/useGlobalStorage";
 import TranslateMessage from "~i18n/TranslateMessage";
 import txKeys from "~i18n/translations";
 import { useTranslation } from "~i18n/useTranslation";
@@ -25,11 +25,12 @@ export default function Home(): JSX.Element {
     router.push("/signup");
   };
 
+  const userName = globalStorage.userName.get();
   return (
     <Box>
       <BackgroundContainer className="landing">
         <Container>
-          {globalStorage.userName.get() !== null && (
+          {userName !== null && (
             <KnownUserContainer>
               <Link
                 href={{
@@ -37,7 +38,7 @@ export default function Home(): JSX.Element {
                   query: { prefilled: "true" },
                 }}
               >
-                Continue as <strong>{globalStorage.userName.get()}</strong>
+                Continue as <strong>{userName}</strong>
               </Link>
             </KnownUserContainer>
           )}
