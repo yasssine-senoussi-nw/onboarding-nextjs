@@ -13,7 +13,6 @@ describe("TextInput component", () => {
   let textInputElement: HTMLElement;
 
   beforeEach(() => {
-    jest.clearAllMocks();
     const textInputRenderResult = new Renderer(<TextInput {...defaultProps} />).withAllProviders().render();
     expect(textInputRenderResult).not.toBeNull();
     textInputElement = textInputRenderResult.getByLabelText(defaultProps.label);
