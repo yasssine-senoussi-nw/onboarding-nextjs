@@ -9,6 +9,14 @@ export const Container = styled(Box)(({ theme }) => ({
   maxWidth: theme.spacing(theme.spacingUnits.maxWindowWidth),
 }));
 
+export const KnownUserContainer = styled(Box)(({ theme }) => ({
+  position: "absolute",
+  top: theme.spacing(theme.spacingUnits.knownUser.top),
+  right: theme.spacing(theme.spacingUnits.knownUser.right),
+  fontWeight: theme.typography.fontWeightMedium,
+  borderSpacing: 4,
+}));
+
 export const BackgroundContainer = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.common.black,
   backgroundImage: "url(/assets/svg/background.svg)",

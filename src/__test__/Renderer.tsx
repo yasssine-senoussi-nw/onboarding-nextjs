@@ -1,6 +1,7 @@
 import type { RenderResult } from "~__test__/test-utils";
 import { render as _render } from "~__test__/test-utils";
 import MuiThemeProvider from "~app/muiThemeProvider/MuiThemeProvider";
+import { TestGlobalStorageProvider } from "~hooks/useGlobalStorage";
 import { TestTranslationProvider } from "~i18n";
 
 import type { ComponentType } from "react";
@@ -21,8 +22,12 @@ export class Renderer {
     return this.withProvider(MuiThemeProvider);
   }
 
+  public withGlobalStorage(): this {
+    return this.withProvider(TestGlobalStorageProvider);
+  }
+
   public withAllProviders(): this {
-    return this.withTranslation().withThemeProvider();
+    return this.withTranslation().withThemeProvider().withGlobalStorage();
   }
 
   public render(): RenderResult {
