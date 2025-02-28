@@ -88,7 +88,7 @@ exports[`Testing page example should render home 1`] = `
 
 .emotion-6>:not(style)+:not(style) {
   margin: 0;
-  margin-left: 1.125rem;
+  margin-left: 28px;
 }
 
 .emotion-7 {
