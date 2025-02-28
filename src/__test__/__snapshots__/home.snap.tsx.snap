@@ -319,7 +319,7 @@ exports[`Testing page example should render home 1`] = `
             href="/signin"
           >
             <button
-              class="MuiButtonBase-root emotion-8"
+              class="MuiButtonBase-root  emotion-8"
               tabindex="0"
               type="button"
             >
