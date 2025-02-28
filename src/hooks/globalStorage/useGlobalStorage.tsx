@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { GlobalStorageContext } from "~hooks/globalStorage/useGlobalStorage.context";
 import type { GlobalStorageType } from "~schemas/useGlobalStorage";
 
-import type { ZodStorage } from "zod-storage/src/lib/types";
+import type { ZodStorage } from "zod-storage";
 
 export function useGlobalStorage(): ZodStorage<GlobalStorageType> {
   const context = useContext(GlobalStorageContext);
