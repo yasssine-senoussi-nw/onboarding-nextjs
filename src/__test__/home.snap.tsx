@@ -1,17 +1,16 @@
-import MuiThemeProvider from "~app/muiThemeProvider/MuiThemeProvider";
+import { Renderer } from "~__test__/Renderer";
+import type { RenderResult } from "~__test__/test-utils";
 import HomePage from "~app/page";
-
-import { render } from "./test-utils";
 
 jest.mock("next/navigation");
 
 describe("Testing page example", () => {
   it("should render home", () => {
-    const { container } = render(
-      <MuiThemeProvider>
-        <HomePage />
-      </MuiThemeProvider>,
-    );
+    const { container } = renderHomePage();
     expect(container).toMatchSnapshot();
   });
+
+  function renderHomePage(): RenderResult {
+    return new Renderer(<HomePage />).withAllProviders().render();
+  }
 });

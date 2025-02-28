@@ -2,6 +2,7 @@
 
 import React, { StrictMode } from "react";
 
+import { GlobalStorageProvider } from "~hooks/globalStorage/useGlobalStorage.provider";
 import { TranslationProvider } from "~i18n";
 import { StoreProvider } from "~store/provider";
 import notistackRef from "~utils/notistackRef";
@@ -19,14 +20,16 @@ export function Providers({ children }: React.PropsWithChildren): JSX.Element {
     <RootStyleRegistry>
       <StrictMode>
         <StoreProvider>
-          <TranslationProvider>
-            <MuiThemeProvider>
-              <CssBaseline />
-              <SnackbarProvider ref={notistackRef} maxSnack={2}>
-                <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-              </SnackbarProvider>
-            </MuiThemeProvider>
-          </TranslationProvider>
+          <GlobalStorageProvider>
+            <TranslationProvider>
+              <MuiThemeProvider>
+                <CssBaseline />
+                <SnackbarProvider ref={notistackRef} maxSnack={2}>
+                  <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+                </SnackbarProvider>
+              </MuiThemeProvider>
+            </TranslationProvider>
+          </GlobalStorageProvider>
         </StoreProvider>
       </StrictMode>
     </RootStyleRegistry>

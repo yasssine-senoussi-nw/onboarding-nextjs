@@ -8,6 +8,10 @@ declare module "@mui/material/styles" {
       maxWindowWidth: number;
       section: number;
       element: number;
+      knownUser: {
+        top: number;
+        right: number;
+      };
       logo: number;
     };
 
@@ -30,6 +34,10 @@ declare module "@mui/material/styles" {
       maxWindowWidth: number;
       section: number;
       element: number;
+      knownUser: {
+        top: number;
+        right: number;
+      };
       logo: number;
     };
 
@@ -107,7 +115,7 @@ const muiTheme = createTheme({
   },
 
   typography: {
-    fontFamily: ["Neue Haas Grotesk Display Pro", "Arial", "sans-serif"].join(","),
+    fontFamily: "Neue Haas Grotesk Display Pro, Arial, sans-serif",
     fontWeightLight: 300,
     fontWeightRegular: 400,
     fontWeightMedium: 500,
@@ -136,6 +144,10 @@ const muiTheme = createTheme({
     maxWindowWidth: 100,
     section: 8, // 8 * 4px = 32px
     element: 3.5, // 3.5 * 4px = 14px
+    knownUser: {
+      top: 1, // 2 * 4px = 8px
+      right: 4, // 4 * 4px = 16px
+    },
     logo: 2, // 2 * 4px = 8px
   },
 
