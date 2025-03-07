@@ -6,9 +6,22 @@
     "generalError": "Une erreur s'est produite",
     "styledButton": "Exemple de bouton @emotion/styled"
   },
+  "auth": {
+    "welcomeBack": "Bienvenue à nouveau",
+    "signin": "Se connecter",
+    "signup": "Inscrivez-vous",
+    "or": "OU",
+    "continueWith": {
+      "google": "Continuer avec Google",
+      "apple": "Continuer avec Apple"
+    },
+    "dontHaveAccount": "Vous n'avez pas de compte ? ",
+    "emailAddress": "Email address",
+    "password": "Mot de passe"
+  },
   "home": {
     "title": "Outils triés pour vous équiper !",
-    "subtitle": "Rejoignez l’initiative Worktools de Nimbleway pour être bien préparé à vos tâches quotidiennes.",
+    "subtitle": "Rejoignez l'initiative Worktools de Nimbleway pour être bien préparé à vos tâches quotidiennes.",
     "buttons": {
       "join": "Rejoindre",
       "signUp": "S'inscrire"

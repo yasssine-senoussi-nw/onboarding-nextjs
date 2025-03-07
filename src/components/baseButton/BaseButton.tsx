@@ -1,10 +1,12 @@
 import { BaseStyledButton } from "~components/baseButton/BaseButton.style";
 
+import type { ReactNode } from "react";
+
 interface BaseButtonProps {
   className?: string;
   text: string;
   onClick: () => void;
-  icon?: JSX.Element;
+  icon?: ReactNode;
 }
 
 export function BaseButton({ className, text, onClick, icon }: BaseButtonProps): JSX.Element {
