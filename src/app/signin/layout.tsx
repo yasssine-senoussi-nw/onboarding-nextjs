@@ -1,6 +1,7 @@
 "use client";
 
 import AuthImage from "~components/authImage/AuthImage";
+import { BackButton } from "~components/backButton";
 import { SignInForm } from "~components/signInForm/SignInForm";
 
 import { Grid } from "@mui/material";
@@ -25,13 +26,24 @@ export default function SignInPage(): JSX.Element {
         xs={12}
         md={6}
         sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
+          position: "relative",
           bgcolor: "background.paper",
+          minHeight: "100vh",
         }}
       >
-        <SignInForm />
+        <BackButton url={"/"} />
+
+        <Grid
+          container
+          sx={{
+            height: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <SignInForm />
+        </Grid>
       </Grid>
     </Grid>
   );
