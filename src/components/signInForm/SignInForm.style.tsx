@@ -1,14 +1,12 @@
-import { PrimaryButton } from "~components/primaryButton";
-import { SecondaryButton } from "~components/secondaryButton";
 import { EyeIconSvg } from "~components/svg/EyeIconSvg";
 
-import { Box, styled } from "@mui/material";
+import { Box, Button, styled } from "@mui/material";
 
-export const LoginWithEmailButton = styled(PrimaryButton)({
+export const LoginWithEmailButton = styled(Button)({
   width: "100%",
 });
 
-export const LoginWithSocialMediaButton = styled(SecondaryButton)({
+export const LoginWithSocialMediaButton = styled(Button)({
   width: "100%",
 });
 
