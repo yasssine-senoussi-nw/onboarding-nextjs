@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import {
   LoginWithEmailButton,
@@ -9,6 +9,7 @@ import {
   ViewPasswordIcon,
 } from "~components/signInForm/SignInForm.style";
 import TextInput from "~components/textInput";
+import { useGlobalStorage } from "~hooks/globalStorage/useGlobalStorage";
 import TranslateMessage from "~i18n/TranslateMessage";
 import txKeys from "~i18n/translations";
 import { useTranslation } from "~i18n/useTranslation";
@@ -18,12 +19,25 @@ import AppleIcon from "@mui/icons-material/Apple";
 import GoogleIcon from "@mui/icons-material/Google";
 import { Box, Container, IconButton, InputAdornment, Link, Stack, Typography, useTheme } from "@mui/material";
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 import theodoLogo from "public/assets/theodo.png";
 
 export function SignInForm(): JSX.Element {
-  const [passwordShow, setPasswordShow] = useState(false);
+  const searchParams = useSearchParams();
+  const globalStorage = useGlobalStorage();
   const translate = useTranslation();
   const theme = useTheme();
+
+  const [passwordShow, setPasswordShow] = useState(false);
+  const [email, setEmail] = useState("");
+
+  useEffect(() => {
+    const prefilled = searchParams?.get("prefilled");
+    if (prefilled === "true") {
+      const lastEmail = globalStorage.email.get();
+      if (lastEmail !== null) setEmail(lastEmail);
+    }
+  }, [globalStorage.email, searchParams]);
 
   return (
     <Container maxWidth="sm">
@@ -40,7 +54,13 @@ export function SignInForm(): JSX.Element {
         {/* Form */}
         <Box component="form" width="100%">
           <Stack spacing={3}>
-            <TextInput fullWidth label={translate(txKeys.auth.emailAddress)} variant="standard" autoComplete="email" />
+            <TextInput
+              fullWidth
+              label={translate(txKeys.auth.emailAddress)}
+              variant="standard"
+              autoComplete="email"
+              value={email}
+            />
 
             <TextInput
               label={translate(txKeys.auth.password)}
