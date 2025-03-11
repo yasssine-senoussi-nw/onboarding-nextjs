@@ -1,6 +1,6 @@
-import { EyeIconSvg } from "~components/eyeIcon/EyeIconSvg";
 import { PrimaryButton } from "~components/primaryButton";
 import { SecondaryButton } from "~components/secondaryButton";
+import { EyeIconSvg } from "~components/svg/EyeIconSvg";
 
 import { Box, styled } from "@mui/material";
 
