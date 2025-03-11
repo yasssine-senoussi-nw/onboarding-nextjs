@@ -123,17 +123,6 @@ export function SignInForm(): JSX.Element {
             />
           </Stack>
 
-          {errors.email !== undefined && (
-            <Typography color="error" sx={{ mt: 2 }}>
-              {errors.email.message}
-            </Typography>
-          )}
-          {errors.password !== undefined && (
-            <Typography color="error" sx={{ mt: 2 }}>
-              {errors.password.message}
-            </Typography>
-          )}
-
           {errors.root !== undefined && (
             <Typography color="error" sx={{ mt: 2 }}>
               {errors.root.message}
