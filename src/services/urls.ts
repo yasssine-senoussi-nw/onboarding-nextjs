@@ -1,4 +1,4 @@
 export enum Urls {
-  signin = "/auth/signin",
+  signin = "/auth/login",
   refreshToken = "/auth/refreshToken",
 }

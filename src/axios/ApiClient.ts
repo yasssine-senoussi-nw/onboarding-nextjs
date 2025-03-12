@@ -1,6 +1,7 @@
 import type { CustomAxiosRequestConfig } from "~axios/config/CustomAxiosRequestConfig";
 import type { ClientRequestConfig } from "~axios/config/RequestConfig";
 import { logAndGetUnknownError, throwError } from "~axios/ErrorHelper";
+import { Urls } from "~services/urls";
 
 import axios, { type AxiosError } from "axios";
 import qs from "query-string";
@@ -33,7 +34,7 @@ instance.interceptors.response.use(
       originalRequest.retry = true;
 
       try {
-        await instance.post("/auth/refreshToken");
+        await instance.post(Urls.refreshToken);
 
         return await instance(originalRequest);
       } catch (refreshError) {
