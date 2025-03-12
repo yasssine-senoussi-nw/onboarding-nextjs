@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import {
   LoginWithEmailButton,
@@ -10,26 +10,32 @@ import {
 } from "~components/signInForm/SignInForm.style";
 import TextInput from "~components/textInput";
 import { useGlobalStorage } from "~hooks/globalStorage/useGlobalStorage";
+import { useLoginMutation } from "~hooks/signin/useLoginMutation";
 import TranslateMessage from "~i18n/TranslateMessage";
 import txKeys from "~i18n/translations";
 import { useTranslation } from "~i18n/useTranslation";
 import { SigninFormSchema, type SigninFormType } from "~schemas/SigninFormSchema";
+import { signinFormToSigninRequest } from "~services/payload/request/LoginRequest";
 import { dummyFunction } from "~utils/dummyFunction";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import AppleIcon from "@mui/icons-material/Apple";
 import GoogleIcon from "@mui/icons-material/Google";
 import { Box, Container, IconButton, InputAdornment, Link, Stack, Typography, useTheme } from "@mui/material";
+import type { TextFieldProps } from "@mui/material/TextField/TextField";
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useSnackbar } from "notistack";
 import theodoLogo from "public/assets/theodo.png";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 
 export function SignInForm(): JSX.Element {
   const searchParams = useSearchParams();
   const globalStorage = useGlobalStorage();
   const translate = useTranslation();
   const theme = useTheme();
+  const router = useRouter();
+  const { enqueueSnackbar } = useSnackbar();
 
   const [passwordShow, setPasswordShow] = useState(false);
   const [email, setEmail] = useState("");
@@ -49,8 +55,8 @@ export function SignInForm(): JSX.Element {
 
   const {
     handleSubmit,
-    register,
     setError,
+    control,
     formState: { errors },
   } = useForm<SigninFormType>({
     resolver: zodResolver(SigninFormSchema),
@@ -58,9 +64,23 @@ export function SignInForm(): JSX.Element {
     mode: "onBlur",
   });
 
-  const onSubmit = (__: SigninFormType) => {
+  const { mutate } = useLoginMutation({
+    onSuccess: (response) => {
+      globalStorage.email.set(response.email);
+      router.push("/mySpace");
+    },
+    onError: () => {
+      enqueueSnackbar("Incorrect email or password.", {
+        variant: "error",
+        autoHideDuration: 5000,
+      });
+    },
+  });
+
+  const onSubmit = (form: SigninFormType) => {
     try {
-      // auth goes here
+      const request = signinFormToSigninRequest(form);
+      mutate(request);
     } catch (_) {
       setError("root", {
         type: "manual",
@@ -68,6 +88,13 @@ export function SignInForm(): JSX.Element {
       });
     }
   };
+
+  // To handle the 'Warning: Function components cannot be given refs. Attempts to access this ref will fail. Did you mean to use React.forwardRef()?' warning
+  const SigninTextInput = React.forwardRef<typeof TextInput, TextFieldProps>((props, ref) => (
+    <TextInput {...props} inputRef={ref} />
+  ));
+  // https://stackoverflow.com/a/67993106
+  SigninTextInput.displayName = "SigninTextInput";
 
   return (
     <Container maxWidth="sm">
@@ -84,42 +111,52 @@ export function SignInForm(): JSX.Element {
         {/* Form */}
         <Box component="form" width="100%" onSubmit={handleSubmit(onSubmit)}>
           <Stack spacing={3}>
-            <TextInput
-              {...register("email")}
-              error={Boolean(errors.email)}
-              helperText={errors.email?.message}
-              required={false}
-              fullWidth
-              label={translate(txKeys.auth.emailAddress)}
-              variant="standard"
-              autoComplete="email"
-              inputRef={register("email").ref}
+            <Controller
+              name="email"
+              control={control}
+              render={({ field }) => (
+                <SigninTextInput
+                  {...field}
+                  error={Boolean(errors.email)}
+                  helperText={errors.email?.message}
+                  required={false}
+                  fullWidth
+                  label={translate(txKeys.auth.emailAddress)}
+                  variant="standard"
+                  autoComplete="email"
+                />
+              )}
             />
 
-            <TextInput
-              {...register("password")}
-              error={Boolean(errors.password)}
-              helperText={errors.password?.message}
-              required={false}
-              label={translate(txKeys.auth.password)}
-              type={passwordShow ? "text" : "password"}
-              variant="standard"
-              autoComplete="current-password"
-              inputRef={register("password").ref}
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <IconButton
-                      onClick={() => {
-                        setPasswordShow(!passwordShow);
-                      }}
-                      edge="end"
-                    >
-                      <ViewPasswordIcon />
-                    </IconButton>
-                  </InputAdornment>
-                ),
-              }}
+            <Controller
+              name="password"
+              control={control}
+              render={({ field }) => (
+                <SigninTextInput
+                  {...field}
+                  error={Boolean(errors.password)}
+                  helperText={errors.password?.message}
+                  required={false}
+                  label={translate(txKeys.auth.password)}
+                  type={passwordShow ? "text" : "password"}
+                  variant="standard"
+                  autoComplete="current-password"
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton
+                          onClick={() => {
+                            setPasswordShow(!passwordShow);
+                          }}
+                          edge="end"
+                        >
+                          <ViewPasswordIcon />
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              )}
             />
           </Stack>
 

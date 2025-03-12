@@ -3,7 +3,7 @@ import type { SVGProps } from "react";
 export function EyeIconSvg({ ...props }: SVGProps<SVGSVGElement>): JSX.Element {
   return (
     <svg {...props} width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g clip-path="url(#clip0_32605_398)">
+      <g clipPath="url(#clip0_32605_398)">
         <path
           d="M0.833496 9.99999C0.833496 9.99999 4.16683 3.33333 10.0002 3.33333C15.8335 3.33333 19.1668 9.99999 19.1668 9.99999C19.1668 9.99999 15.8335 16.6667 10.0002 16.6667C4.16683 16.6667 0.833496 9.99999 0.833496 9.99999Z"
           strokeWidth="2"
