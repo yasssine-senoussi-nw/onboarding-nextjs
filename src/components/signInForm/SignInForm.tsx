@@ -22,6 +22,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import AppleIcon from "@mui/icons-material/Apple";
 import GoogleIcon from "@mui/icons-material/Google";
 import { Box, Container, IconButton, InputAdornment, Link, Stack, Typography, useTheme } from "@mui/material";
+import type { TextFieldProps } from "@mui/material/TextField/TextField";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useSnackbar } from "notistack";
@@ -89,7 +90,9 @@ export function SignInForm(): JSX.Element {
   };
 
   // To handle the 'Warning: Function components cannot be given refs. Attempts to access this ref will fail. Did you mean to use React.forwardRef()?' warning
-  const SigninTextInput = React.forwardRef((props, ref) => <TextInput {...props} inputRef={ref} />);
+  const SigninTextInput = React.forwardRef<typeof TextInput, TextFieldProps>((props, ref) => (
+    <TextInput {...props} inputRef={ref} />
+  ));
   // https://stackoverflow.com/a/67993106
   SigninTextInput.displayName = "SigninTextInput";
 
