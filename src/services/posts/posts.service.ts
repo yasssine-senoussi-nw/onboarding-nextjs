@@ -1,5 +1,5 @@
+import apiClient from "~axios/ApiClient";
 import type { Post } from "~components/posts/types";
-import apiClient from "~utils/axiosApiClient";
 
 const getPosts = async (): Promise<Post[]> => {
   return apiClient.get<Post[]>("/posts");

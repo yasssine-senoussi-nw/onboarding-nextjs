@@ -1,12 +1,9 @@
-import { logAndGetUnknownError, throwError } from "./axiosErrorHelper";
+import type { CustomAxiosRequestConfig } from "~axios/config/CustomAxiosRequestConfig";
+import type { ClientRequestConfig } from "~axios/config/RequestConfig";
+import { logAndGetUnknownError, throwError } from "~axios/ErrorHelper";
 
-import axios from "axios";
+import axios, { type AxiosError } from "axios";
 import qs from "query-string";
-
-type ClientRequestConfig = {
-  params?: Record<string, unknown>;
-  paramsSerializer?: (params: Record<string, unknown>) => string;
-};
 
 const API_BASE_URL = process.env["NEXT_PUBLIC_API_BASE_URL"] ?? "";
 
@@ -22,6 +19,30 @@ instance.interceptors.response.use(
       throwError(error);
     }
     throw logAndGetUnknownError(error);
+  },
+);
+
+instance.interceptors.response.use(
+  (response) => response,
+  async (error: AxiosError) => {
+    const originalRequest = error.config as CustomAxiosRequestConfig;
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+    const doRetry: boolean = originalRequest?.retry ?? false;
+
+    if ([401, 403].includes(error.response?.status ?? 0) && !doRetry) {
+      originalRequest.retry = true;
+
+      try {
+        await instance.post("/auth/refreshToken");
+
+        return await instance(originalRequest);
+      } catch (refreshError) {
+        window.location.href = "/login"; // Redirection vers login
+        return Promise.reject(refreshError);
+      }
+    }
+
+    return Promise.reject(error);
   },
 );
 

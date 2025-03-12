@@ -8,6 +8,7 @@ const BUILD_SHA = process.env.NEXT_PUBLIC_BUILD_SHA || "";
 const contentSecurityPolicy = {
   directives: {
     defaultSrc: "'self'",
+    connectSrc: "'self' http://localhost:3001",
     scriptSrc: "'self' 'unsafe-eval' 'unsafe-inline'",
     childSrc: "'self' https://*",
     styleSrc: "'self' https://*",
