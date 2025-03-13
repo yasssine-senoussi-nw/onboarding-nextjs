@@ -1,4 +1,4 @@
-import type { SigninFormType } from "~schemas/SigninFormSchema";
+import type { SigninFormType } from "~schemas/signin/SigninFormSchema";
 
 export type LoginRequest = {
   email: string;
