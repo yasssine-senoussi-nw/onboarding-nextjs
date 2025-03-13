@@ -1,4 +1,4 @@
-import { SigninFormatConstants } from "~schemas/SigninFormSchema.constants";
+import { SigninFormatConstants } from "~schemas/signin/SigninFormSchema.constants";
 
 import { z } from "zod";
 

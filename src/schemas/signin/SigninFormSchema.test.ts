@@ -1,5 +1,5 @@
-import { SigninFormSchema } from "~schemas/SigninFormSchema";
-import { SigninFormatConstants } from "~schemas/SigninFormSchema.constants";
+import { SigninFormSchema } from "~schemas/signin/SigninFormSchema";
+import { SigninFormatConstants } from "~schemas/signin/SigninFormSchema.constants";
 
 describe("Login Validation Schema", () => {
   it("should detect missing email", () => {
