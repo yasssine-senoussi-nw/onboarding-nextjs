@@ -26,14 +26,12 @@ export default function Home(): JSX.Element {
     router.push("/signup");
   };
 
-  globalStorage.userName.set("Yassine ");
-
-  const userName = globalStorage.userName.get();
+  const userName = globalStorage.userInfo.get()?.name;
   return (
     <Box>
       <BackgroundContainer className="landing">
         <Container>
-          {userName !== null && (
+          {userName !== undefined && (
             <KnownUserContainer>
               <Link
                 href={{

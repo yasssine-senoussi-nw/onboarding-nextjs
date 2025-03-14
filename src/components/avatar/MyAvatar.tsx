@@ -7,6 +7,7 @@ import {
   UserNameText,
   UserRoleText,
 } from "~components/avatar/MyAvatar.style";
+import { useGlobalStorage } from "~hooks/globalStorage/useGlobalStorage";
 import TranslateMessage from "~i18n/TranslateMessage";
 import txKeys from "~i18n/translations";
 
@@ -15,13 +16,7 @@ import { List, MenuItem, Popover, Typography } from "@mui/material";
 export function MyAvatar(): JSX.Element {
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
   const [isOpen, setIsOpen] = useState(false);
-
-  const user = {
-    firstName: "John",
-    lastName: "Doe",
-    role: "Administrateur",
-    avatarUrl: "<AVATAR_URL>",
-  };
+  const userInfo = useGlobalStorage().userInfo.get();
 
   const handleAvatarClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -40,7 +35,7 @@ export function MyAvatar(): JSX.Element {
 
   return (
     <>
-      <StyledAvatar src={user.avatarUrl} onClick={handleAvatarClick} />
+      <StyledAvatar data-testid="avatar-img" src={""} onClick={handleAvatarClick} />
 
       <Popover
         data-testid="avatar-popover"
@@ -58,10 +53,8 @@ export function MyAvatar(): JSX.Element {
       >
         <StyledPopoverContent>
           <StyledSection>
-            <UserNameText variant="subtitle1">
-              {user.firstName} {user.lastName}
-            </UserNameText>
-            <UserRoleText variant="body2">{user.role}</UserRoleText>
+            <UserNameText variant="subtitle1">{userInfo?.name}</UserNameText>
+            <UserRoleText variant="body2">{userInfo?.role}</UserRoleText>
           </StyledSection>
 
           <List disablePadding>

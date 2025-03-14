@@ -15,6 +15,7 @@ import {
 } from "~components/header/Header.style";
 import { OrangeTheodoLogoSvg } from "~components/svg/OrangeTheodoLogoSvg";
 import { WhiteTheodoLogoSvg } from "~components/svg/WhiteTheodoLogoSvg";
+import { useGlobalStorage } from "~hooks/globalStorage/useGlobalStorage";
 import TranslateMessage from "~i18n/TranslateMessage";
 import txKeys from "~i18n/translations";
 
@@ -23,6 +24,7 @@ import { Box, IconButton } from "@mui/material";
 
 export function Header(): JSX.Element {
   const [logoSrc, setLogoSrc] = useState(WhiteTheodoLogoSvg);
+  const userInfo = useGlobalStorage().userInfo.get();
 
   const handleLogoHover = () => {
     setLogoSrc(OrangeTheodoLogoSvg);
@@ -32,7 +34,6 @@ export function Header(): JSX.Element {
     setLogoSrc(WhiteTheodoLogoSvg);
   };
 
-  const balance = 60000.0;
   const totalPurchases = 1;
 
   return (
@@ -44,7 +45,7 @@ export function Header(): JSX.Element {
 
         <Box display="flex" alignItems="center">
           <StyledBalanceContainer alignItems="flex-start">
-            <StyledBalance>{balance}</StyledBalance>
+            <StyledBalance>{userInfo?.balance}</StyledBalance>
             <StyledBalanceCaption variant="caption">
               <TranslateMessage txKey={txKeys.mySpace.balance} />
             </StyledBalanceCaption>

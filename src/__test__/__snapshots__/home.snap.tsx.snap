@@ -43,20 +43,12 @@ exports[`Testing page example should render home 1`] = `
 }
 
 .emotion-3 {
-  position: absolute;
-  top: 8px;
-  right: 32px;
-  font-weight: 500;
-  border-spacing: 4px;
-}
-
-.emotion-4 {
   margin-bottom: 16px;
   width: 19rem;
   height: 4rem;
 }
 
-.emotion-5 {
+.emotion-4 {
   margin: 0;
   font-family: Neue Haas Grotesk Display Pro,Arial,sans-serif;
   font-weight: 400;
@@ -70,7 +62,7 @@ exports[`Testing page example should render home 1`] = `
   margin-bottom: 64px;
 }
 
-.emotion-6 {
+.emotion-5 {
   margin: 0;
   font-family: Neue Haas Grotesk Display Pro,Arial,sans-serif;
   font-weight: 400;
@@ -84,7 +76,7 @@ exports[`Testing page example should render home 1`] = `
   margin-bottom: 28px;
 }
 
-.emotion-7 {
+.emotion-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -94,12 +86,12 @@ exports[`Testing page example should render home 1`] = `
   flex-direction: row;
 }
 
-.emotion-7>:not(style)+:not(style) {
+.emotion-6>:not(style)+:not(style) {
   margin: 0;
   margin-left: 28px;
 }
 
-.emotion-8 {
+.emotion-7 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -158,27 +150,27 @@ exports[`Testing page example should render home 1`] = `
   color: #FFFFFF;
 }
 
-.emotion-8::-moz-focus-inner {
+.emotion-7::-moz-focus-inner {
   border-style: none;
 }
 
-.emotion-8.Mui-disabled {
+.emotion-7.Mui-disabled {
   pointer-events: none;
   cursor: default;
 }
 
 @media print {
-  .emotion-8 {
+  .emotion-7 {
     -webkit-print-color-adjust: exact;
     color-adjust: exact;
   }
 }
 
-.emotion-8:hover {
+.emotion-7:hover {
   background-color: rgba(255, 255, 255, .12);
 }
 
-.emotion-9 {
+.emotion-8 {
   overflow: hidden;
   pointer-events: none;
   position: absolute;
@@ -190,7 +182,7 @@ exports[`Testing page example should render home 1`] = `
   border-radius: inherit;
 }
 
-.emotion-10 {
+.emotion-9 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -247,23 +239,23 @@ exports[`Testing page example should render home 1`] = `
   font-family: Neue Haas Grotesk Display Pro,Arial,sans-serif;
 }
 
-.emotion-10::-moz-focus-inner {
+.emotion-9::-moz-focus-inner {
   border-style: none;
 }
 
-.emotion-10.Mui-disabled {
+.emotion-9.Mui-disabled {
   pointer-events: none;
   cursor: default;
 }
 
 @media print {
-  .emotion-10 {
+  .emotion-9 {
     -webkit-print-color-adjust: exact;
     color-adjust: exact;
   }
 }
 
-.emotion-10:hover {
+.emotion-9:hover {
   background-color: #EF7371;
   color: #FFF;
 }
@@ -278,21 +270,9 @@ exports[`Testing page example should render home 1`] = `
       <div
         class="MuiBox-root emotion-2"
       >
-        <div
-          class="MuiBox-root emotion-3"
-        >
-          <a
-            href="/signin?prefilled=true"
-          >
-            Continue as 
-            <strong>
-              Yassine 
-            </strong>
-          </a>
-        </div>
         <img
           alt="Theodo"
-          class="emotion-4"
+          class="emotion-3"
           data-nimg="1"
           decoding="async"
           height="40"
@@ -303,29 +283,29 @@ exports[`Testing page example should render home 1`] = `
           width="40"
         />
         <p
-          class="MuiTypography-root MuiTypography-body1 emotion-5"
+          class="MuiTypography-root MuiTypography-body1 emotion-4"
         >
           Outils triés pour vous équiper !
         </p>
         <p
-          class="MuiTypography-root MuiTypography-body1 emotion-6"
+          class="MuiTypography-root MuiTypography-body1 emotion-5"
         >
           Rejoignez l'initiative Worktools de Nimbleway pour être bien préparé à vos tâches quotidiennes.
         </p>
         <div
-          class="emotion-7"
+          class="emotion-6"
         >
           <a
             href="/signin"
           >
             <button
-              class="MuiButtonBase-root  emotion-8"
+              class="MuiButtonBase-root  emotion-7"
               tabindex="0"
               type="button"
             >
               Rejoindre
               <span
-                class="MuiTouchRipple-root emotion-9"
+                class="MuiTouchRipple-root emotion-8"
               />
             </button>
           </a>
@@ -333,13 +313,13 @@ exports[`Testing page example should render home 1`] = `
             href="/signup"
           >
             <button
-              class="MuiButtonBase-root  emotion-10"
+              class="MuiButtonBase-root  emotion-9"
               tabindex="0"
               type="button"
             >
               S'inscrire
               <span
-                class="MuiTouchRipple-root emotion-9"
+                class="MuiTouchRipple-root emotion-8"
               />
             </button>
           </a>

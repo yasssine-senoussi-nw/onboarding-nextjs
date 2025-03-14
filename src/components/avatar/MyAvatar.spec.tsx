@@ -21,7 +21,7 @@ describe("MyAvatar", () => {
 
   beforeEach(() => {
     const result = new Renderer(<MyAvatar />).withAllProviders().render();
-    avatarElement = result.getByRole("img");
+    avatarElement = result.getByTestId("avatar-img");
   });
 
   it("should open and close popover on click", async () => {
