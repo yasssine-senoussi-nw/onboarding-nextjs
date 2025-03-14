@@ -18,7 +18,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse): Promise<unkno
   if (isDevelopment) {
     if (req.url?.startsWith("/api/") === true) {
       return httpProxyMiddleware(req, res, {
-        target: "http://localhost:3001", // replace with your backend base url
+        target: process.env["NEXT_PUBLIC_API_BASE_URL"] ?? "",
         secure: false,
       });
     }

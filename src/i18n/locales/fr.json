@@ -27,5 +27,12 @@
       "join": "Rejoindre",
       "signUp": "S'inscrire"
     }
+  },
+  "mySpace": {
+    "balance": "Balance",
+    "totalPurchases": "Total des achats",
+    "settings": "Paramètres",
+    "help": "Aide",
+    "logOut": "Se déconnecter"
   }
 }

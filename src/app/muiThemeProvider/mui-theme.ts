@@ -26,6 +26,18 @@ declare module "@mui/material/styles" {
           md: string;
         };
       };
+      avatar: {
+        popup: {
+          padding: {
+            left?: string | undefined;
+            right?: string | undefined;
+            top?: string | undefined;
+            bottom?: string | undefined;
+          };
+          minWidth: string;
+          border: string;
+        };
+      };
     };
   }
 
@@ -50,6 +62,18 @@ declare module "@mui/material/styles" {
         height: {
           xs: string;
           md: string;
+        };
+      };
+      avatar: {
+        popup: {
+          padding: {
+            left?: string | undefined;
+            right?: string | undefined;
+            top?: string | undefined;
+            bottom?: string | undefined;
+          };
+          minWidth: string;
+          border: string;
         };
       };
     };
@@ -160,6 +184,19 @@ const muiTheme = createTheme({
       height: {
         xs: "3rem",
         md: "4rem",
+      },
+    },
+
+    avatar: {
+      popup: {
+        padding: {
+          left: "1.1rem",
+          right: "1.1rem",
+          top: "1.1rem",
+          bottom: "1rem",
+        },
+        minWidth: "12.5rem",
+        border: `0.15rem solid`,
       },
     },
   },

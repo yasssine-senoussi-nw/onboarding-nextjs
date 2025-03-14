@@ -14,8 +14,8 @@ import { useLoginMutation } from "~hooks/signin/useLoginMutation";
 import TranslateMessage from "~i18n/TranslateMessage";
 import txKeys from "~i18n/translations";
 import { useTranslation } from "~i18n/useTranslation";
-import { LoginResponseSchema } from "~schemas/login/loginResponseSchema";
 import { SigninFormSchema, type SigninFormType } from "~schemas/signin/SigninFormSchema";
+import { UserInfoSchema } from "~schemas/userInfo/userInfoSchema";
 import { signinFormToSigninRequest } from "~services/payload/request/LoginRequest";
 import { dummyFunction } from "~utils/dummyFunction";
 
@@ -44,10 +44,10 @@ export function SignInForm(): JSX.Element {
   useEffect(() => {
     const prefilled = searchParams?.get("prefilled");
     if (prefilled === "true") {
-      const lastEmail = globalStorage.email.get();
-      if (lastEmail !== null) setEmail(lastEmail);
+      const lastEmail = globalStorage.userInfo.get()?.email;
+      if (lastEmail !== undefined) setEmail(lastEmail);
     }
-  }, [globalStorage.email, searchParams]);
+  }, [globalStorage.userInfo, searchParams]);
 
   const defaultFormValues: SigninFormType = {
     email,
@@ -67,8 +67,8 @@ export function SignInForm(): JSX.Element {
 
   const { mutate } = useLoginMutation({
     onSuccess: (response) => {
-      LoginResponseSchema.parse(response);
-      globalStorage.email.set(response.email);
+      const userInfo = UserInfoSchema.parse(response);
+      globalStorage.userInfo.set(userInfo);
       router.push("/mySpace");
     },
     onError: () => {

@@ -1,7 +1,8 @@
+import { UserInfoSchema } from "~schemas/userInfo/userInfoSchema";
+
 import { z } from "zod";
 
 export const GlobalStorageSchema = z.object({
-  userName: z.string().nullable(),
-  email: z.string().nullable(),
+  userInfo: UserInfoSchema,
 });
 export type GlobalStorageType = z.infer<typeof GlobalStorageSchema>;
