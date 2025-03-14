@@ -43,6 +43,7 @@ export function MyAvatar(): JSX.Element {
       <StyledAvatar src={user.avatarUrl} onClick={handleAvatarClick} />
 
       <Popover
+        data-testid="avatar-popover"
         open={isOpen}
         anchorEl={anchorEl}
         onClose={handleClose}
