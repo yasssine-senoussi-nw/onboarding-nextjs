@@ -14,7 +14,6 @@ import { useLoginMutation } from "~hooks/signin/useLoginMutation";
 import TranslateMessage from "~i18n/TranslateMessage";
 import txKeys from "~i18n/translations";
 import { useTranslation } from "~i18n/useTranslation";
-import { LoginResponseSchema } from "~schemas/login/loginResponseSchema";
 import { SigninFormSchema, type SigninFormType } from "~schemas/signin/SigninFormSchema";
 import { signinFormToSigninRequest } from "~services/payload/request/LoginRequest";
 import { dummyFunction } from "~utils/dummyFunction";
@@ -67,7 +66,6 @@ export function SignInForm(): JSX.Element {
 
   const { mutate } = useLoginMutation({
     onSuccess: (response) => {
-      LoginResponseSchema.parse(response);
       globalStorage.email.set(response.email);
       router.push("/mySpace");
     },
