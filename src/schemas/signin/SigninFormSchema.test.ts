@@ -1,9 +1,10 @@
-import { SigninFormSchema } from "~schemas/SigninFormSchema";
-import { SigninFormatConstants } from "~schemas/SigninFormSchema.constants";
+import type { SigninFormType } from "~schemas/signin/SigninFormSchema";
+import { SigninFormSchema } from "~schemas/signin/SigninFormSchema";
+import { SigninFormatConstants } from "~schemas/signin/SigninFormSchema.constants";
 
 describe("Login Validation Schema", () => {
   it("should detect missing email", () => {
-    const invalidData = {
+    const invalidData: SigninFormType = {
       email: "",
       password: "validPassword123",
     };
@@ -17,7 +18,7 @@ describe("Login Validation Schema", () => {
   });
 
   it("should detect invalid email domain", () => {
-    const invalidData = {
+    const invalidData: SigninFormType = {
       email: "test@gmail.com",
       password: "validPassword123",
     };
@@ -31,7 +32,7 @@ describe("Login Validation Schema", () => {
   });
 
   it("should detect missing password", () => {
-    const invalidData = {
+    const invalidData: SigninFormType = {
       email: "valid@theodo.com",
       password: "",
     };
@@ -45,7 +46,7 @@ describe("Login Validation Schema", () => {
   });
 
   it("should detect short password", () => {
-    const invalidData = {
+    const invalidData: SigninFormType = {
       email: "valid@theodo.com",
       password: "123",
     };
@@ -59,7 +60,7 @@ describe("Login Validation Schema", () => {
   });
 
   it("should validate correct credentials", () => {
-    const validData = {
+    const validData: SigninFormType = {
       email: "valid@theodo.com",
       password: "validPassword123",
     };
