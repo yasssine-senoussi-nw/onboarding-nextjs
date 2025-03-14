@@ -6,7 +6,8 @@ import { Urls } from "~services/urls";
 import axios, { type AxiosError } from "axios";
 import qs from "query-string";
 
-const API_BASE_URL = process.env["NEXT_PUBLIC_API_BASE_URL"] ?? "";
+const apiUrl = process.env["NEXT_PUBLIC_API_BASE_URL"];
+const API_BASE_URL = apiUrl === undefined ? "" : `${apiUrl}/api`;
 
 const instance = axios.create({
   baseURL: API_BASE_URL,
